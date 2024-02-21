@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  release-nginx
+spec:
+  selector:
+    matchLabels:
+      app:  release-nginx
+  template:
+    metadata:
+      labels:
+        app:  release-nginx
+    spec:
+      containers:
+      - name:  release-nginx
+        image: vivekmore5292/cloudethix_release_nginx_vivek:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

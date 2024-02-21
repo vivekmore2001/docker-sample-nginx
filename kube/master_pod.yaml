@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: master-nginx
+spec:
+  selector:
+    matchLabels:
+      app: master-nginx
+  template:
+    metadata:
+      labels:
+        app: master-nginx
+    spec:
+      containers:
+      - name: master-nginx
+        image: vivekmore5292/cloudethix_master_nginx_vivek:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
